@@ -1,0 +1,760 @@
+/* estilo.css - TEMA VINTAGE VERDE CON FONDO MEJORADO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #2c3e2c;
+    background: 
+        /* Textura de papel antiguo */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise"/><feColorMatrix type="saturate" values="0"/></filter><rect width="400" height="400" filter="url(%23noise)" opacity="0.08"/></svg>'),
+        /* Gradiente suave verde */
+        linear-gradient(135deg, #e8f5e8 0%, #d4e8d4 25%, #c8e0c8 50%, #d4e8d4 75%, #e8f5e8 100%);
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Patrón decorativo vintage en el fondo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(143, 188, 143, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(90, 124, 90, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 40% 80%, rgba(58, 92, 58, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 60% 20%, rgba(44, 74, 44, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Líneas decorativas vintage en los bordes */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, transparent 95%, rgba(90, 124, 90, 0.1) 95%),
+        linear-gradient(90deg, transparent 5%, rgba(90, 124, 90, 0.1) 5%),
+        linear-gradient(0deg, transparent 95%, rgba(90, 124, 90, 0.1) 95%),
+        linear-gradient(0deg, transparent 5%, rgba(90, 124, 90, 0.1) 5%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: 
+        /* Textura de papel con transparencia */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f9f5" opacity="0.95"/><path d="M0 0L100 100M100 0L0 100" stroke="%23d4e6d4" stroke-width="0.5" opacity="0.3"/></svg>'),
+        linear-gradient(135deg, rgba(248, 249, 245, 0.98) 0%, rgba(240, 247, 240, 0.95) 100%);
+    border-radius: 12px;
+    box-shadow: 
+        0 8px 32px rgba(58, 92, 58, 0.15),
+        0 2px 8px rgba(44, 74, 44, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #c8dcc8;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Bordes decorativos del contenedor */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid rgba(90, 124, 90, 0.2);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ENCABEZADO VINTAGE */
+header {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 40px 30px;
+    background: 
+        /* Textura sutil */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%233a5c3a"/><path d="M0 0L200 200M200 0L0 200" stroke="%232c4a2c" stroke-width="2" opacity="0.1"/></svg>'),
+        linear-gradient(135deg, #3a5c3a 0%, #2c4a2c 50%, #3a5c3a 100%);
+    color: #f0f7e6;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        #8fbc8f 0%, 
+        #9acd9a 25%, 
+        #a8d4a8 50%, 
+        #9acd9a 75%, 
+        #8fbc8f 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #9acd9a 20%, 
+        #a8d4a8 50%, 
+        #9acd9a 80%, 
+        transparent 100%);
+}
+
+header h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+header h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #9acd9a 30%, 
+        #a8d4a8 50%, 
+        #9acd9a 70%, 
+        transparent 100%);
+}
+
+header p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* SECCIÓN DE CARGA */
+.upload-section {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8fff8"/><path d="M0 50L100 50M50 0L50 100" stroke="%23e0ece0" stroke-width="1" opacity="0.5"/></svg>'),
+        linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+    padding: 30px;
+    margin: 25px;
+    border-radius: 10px;
+    box-shadow: 
+        0 4px 15px rgba(58, 92, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(200, 220, 200, 0.3);
+    border: 1px solid #d4e6d4;
+    position: relative;
+    border-left: 4px solid #8fbc8f;
+}
+
+.upload-section::before {
+    content: "📊";
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    background: linear-gradient(135deg, #5a7c5a, #4a6c4a);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #8fbc8f;
+}
+
+.upload-section h2 {
+    margin-bottom: 20px;
+    color: #2c4a2c;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.file-info {
+    margin-top: 15px;
+    font-style: italic;
+    color: #5a7c5a;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* CONTROLES VINTAGE */
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 25px;
+    padding: 30px;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><rect width="80" height="80" fill="%23f8fff8"/><circle cx="40" cy="40" r="2" fill="%23d4e6d4" opacity="0.3"/></svg>'),
+        linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+    border-radius: 10px;
+    box-shadow: 
+        0 4px 15px rgba(58, 92, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #d4e6d4;
+    border-top: 3px solid #9acd9a;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.control-group label {
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #2c4a2c;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+}
+
+select, input, button {
+    padding: 14px 18px;
+    border: 2px solid #c8dcc8;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" fill="%23ffffff"/></svg>'),
+        linear-gradient(to bottom, #ffffff, #f8fcf8);
+    font-family: 'Georgia', serif;
+    color: #2c3e2c;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #5a7c5a;
+    box-shadow: 
+        0 0 0 3px rgba(90, 124, 90, 0.2),
+        inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom, #f8fff8, #f0f7f0);
+}
+
+button {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><rect width="10" height="10" fill="%235a7c5a" opacity="0.1"/></svg>'),
+        linear-gradient(135deg, #5a7c5a, #4a6c4a);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    border: 1px solid #4a6c4a;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #4a6c4a, #3a5c3a);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 4px 12px rgba(90, 124, 90, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* BUSCADOR */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" fill="%23ffffff"/></svg>'),
+        linear-gradient(to bottom, #ffffff, #f8fcf8);
+    border: 2px solid #c8dcc8;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item {
+    padding: 12px 18px;
+    cursor: pointer;
+    border-bottom: 1px solid #e8f0e8;
+    transition: all 0.2s ease;
+    font-family: 'Georgia', serif;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><rect width="10" height="10" fill="%23f0f7f0" opacity="0.3"/></svg>');
+}
+
+.search-result-item:hover {
+    background-color: #f0f7f0;
+    color: #2c4a2c;
+    transform: translateX(5px);
+}
+
+/* ESTADÍSTICAS */
+.stats-container {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><rect width="120" height="120" fill="%23f8fff8"/><path d="M0 60L120 60M60 0L60 120" stroke="%23e0ece0" stroke-width="1" opacity="0.3"/></svg>'),
+        linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+    padding: 30px;
+    margin: 25px;
+    border-radius: 10px;
+    box-shadow: 
+        0 4px 15px rgba(58, 92, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #d4e6d4;
+    border-right: 4px solid #8fbc8f;
+}
+
+.stats-container h2 {
+    margin-bottom: 25px;
+    color: #2c4a2c;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    position: relative;
+}
+
+.stats-container h2::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 40%;
+    right: 40%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #5a7c5a 30%, 
+        #8fbc8f 50%, 
+        #5a7c5a 70%, 
+        transparent 100%);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%23ffffff"/><circle cx="30" cy="30" r="1" fill="%23e0ece0" opacity="0.5"/></svg>'),
+        linear-gradient(135deg, #ffffff 0%, #f8fcf8 100%);
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 4px 12px rgba(58, 92, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border: 1px solid #e0ece0;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        #8fbc8f 0%, 
+        #9acd9a 25%, 
+        #a8d4a8 50%, 
+        #9acd9a 75%, 
+        #8fbc8f 100%);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 8px 20px rgba(58, 92, 58, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.stat-card h3 {
+    color: #3a5c3a;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Georgia', serif;
+}
+
+.stat-card span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c4a2c;
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card p {
+    font-size: 0.85rem;
+    color: #5a7c5a;
+    margin: 0;
+    font-style: italic;
+}
+
+/* GRÁFICOS */
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 25px;
+    margin: 25px;
+    margin-bottom: 30px;
+}
+
+.chart-section {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8fff8"/><path d="M0 0L100 100" stroke="%23e0ece0" stroke-width="1" opacity="0.2"/></svg>'),
+        linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 
+        0 4px 15px rgba(58, 92, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #d4e6d4;
+    position: relative;
+    border-left: 4px solid #9acd9a;
+}
+
+.chart-section::before {
+    content: "📈";
+    position: absolute;
+    top: -12px;
+    left: 25px;
+    background: linear-gradient(135deg, #5a7c5a, #4a6c4a);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #8fbc8f;
+}
+
+.chart-section h2 {
+    margin-bottom: 25px;
+    color: #2c4a2c;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+canvas {
+    width: 100% !important;
+    height: 350px !important;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+}
+
+/* COMPARACIÓN */
+.comparison-section {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><rect width="150" height="150" fill="%23f8fff8"/><circle cx="75" cy="75" r="2" fill="%23d4e6d4" opacity="0.3"/></svg>'),
+        linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+    padding: 30px;
+    margin: 25px;
+    border-radius: 10px;
+    box-shadow: 
+        0 4px 15px rgba(58, 92, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #d4e6d4;
+    position: relative;
+    border-right: 4px solid #8fbc8f;
+}
+
+.comparison-section::before {
+    content: "⚖️";
+    position: absolute;
+    top: -12px;
+    left: 25px;
+    background: linear-gradient(135deg, #5a7c5a, #4a6c4a);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #8fbc8f;
+}
+
+.comparison-section h2 {
+    margin-bottom: 25px;
+    color: #2c4a2c;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+.comparison-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.comparison-item {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><rect width="80" height="80" fill="%23ffffff"/><path d="M0 40L80 40M40 0L40 80" stroke="%23e0ece0" stroke-width="1" opacity="0.3"/></svg>'),
+        linear-gradient(135deg, #ffffff 0%, #f8fcf8 100%);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 
+        0 4px 12px rgba(58, 92, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border: 1px solid #e0ece0;
+    position: relative;
+}
+
+.comparison-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        #8fbc8f 0%, 
+        #9acd9a 25%, 
+        #a8d4a8 50%, 
+        #9acd9a 75%, 
+        #8fbc8f 100%);
+}
+
+.comparison-item h3 {
+    color: #2c4a2c;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-family: 'Georgia', serif;
+}
+
+.comparison-stats p {
+    margin-bottom: 12px;
+    color: #3a5c3a;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+}
+
+.comparison-stats span {
+    font-weight: 600;
+    color: #2c4a2c;
+}
+
+/* TABLA DE DATOS */
+.data-table {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f8fff8"/><path d="M0 0L200 200" stroke="%23e0ece0" stroke-width="1" opacity="0.1"/></svg>'),
+        linear-gradient(135deg, #f8fff8 0%, #f0f7f0 100%);
+    padding: 30px;
+    margin: 25px;
+    border-radius: 10px;
+    box-shadow: 
+        0 4px 15px rgba(58, 92, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #d4e6d4;
+    position: relative;
+    border-left: 4px solid #9acd9a;
+}
+
+.data-table::before {
+    content: "📋";
+    position: absolute;
+    top: -12px;
+    left: 25px;
+    background: linear-gradient(135deg, #5a7c5a, #4a6c4a);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #8fbc8f;
+}
+
+.data-table h2 {
+    margin-bottom: 25px;
+    color: #2c4a2c;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+.table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #d4e6d4;
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    font-family: 'Georgia', serif;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><rect width="50" height="50" fill="%23ffffff"/></svg>');
+}
+
+th, td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e0ece0;
+}
+
+th {
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%233a5c3a"/><path d="M0 50L100 50M50 0L50 100" stroke="%232c4a2c" stroke-width="1" opacity="0.2"/></svg>'),
+        linear-gradient(135deg, #3a5c3a 0%, #2c4a2c 100%);
+    color: #f0f7e6;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+tr:hover {
+    background-color: #f0f7f0;
+}
+
+.loading-message {
+    text-align: center;
+    color: #5a7c5a;
+    font-style: italic;
+    padding: 40px;
+    font-size: 1.1rem;
+}
+
+/* ESTADOS DE CARGA */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #e8f0e8;
+    border-top: 3px solid #5a7c5a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .comparison-container {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .container {
+        margin: 10px;
+    }
+    
+    .upload-section, .controls, .stats-container, 
+    .charts-container, .comparison-section, .data-table {
+        margin: 15px;
+    }
+}
+
+/* ANIMACIONES */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* EFECTO DE PAPEL ANTIGUO MEJORADO */
+.paper-texture {
+    background: 
+        /* Textura de papel con grano */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise"/><feColorMatrix type="saturate" values="0"/></filter><rect width="400" height="400" filter="url(%23noise)" opacity="0.08"/></svg>'),
+        /* Gradiente verde vintage */
+        linear-gradient(135deg, #e8f5e8 0%, #d4e8d4 25%, #c8e0c8 50%, #d4e8d4 75%, #e8f5e8 100%),
+        /* Patrón sutil */
+        radial-gradient(circle at 20% 80%, rgba(143, 188, 143, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(90, 124, 90, 0.08) 0%, transparent 50%);
+}

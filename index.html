@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Población Mundial</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="paper-texture">
+    <div class="container vintage-border">
+        <header>
+            <h1>Análisis de Población Mundial (1960-2024)</h1>
+            <p>Explora y compara datos demográficos de diferentes países a través del tiempo</p>
+        </header>
+
+        <div class="upload-section">
+            <h2>Cargar archivo de datos</h2>
+            <input type="file" id="fileInput" accept=".xls,.xlsx">
+            <p class="file-info">Selecciona el archivo Excel con los datos de población</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="countrySearch">Buscar país:</label>
+                <input type="text" id="countrySearch" placeholder="Escribe el nombre del país..." disabled>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+            
+            <div class="control-group">
+                <label for="countrySelect">País seleccionado:</label>
+                <select id="countrySelect" disabled>
+                    <option value="">-- Primero carga el archivo --</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="yearSelect">Año seleccionado:</label>
+                <select id="yearSelect" disabled>
+                    <option value="">-- Selecciona un año --</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="comparisonType">Tipo de comparación:</label>
+                <select id="comparisonType">
+                    <option value="none">Sin comparación</option>
+                    <option value="years">Comparar años</option>
+                    <option value="countries">Comparar países</option>
+                </select>
+            </div>
+            
+            <div class="control-group" id="comparisonControl" style="display: none;">
+                <label id="comparisonLabel">Segundo elemento:</label>
+                <select id="comparisonSelect">
+                    <option value="">-- Selecciona --</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <button id="compareButton" style="display: none;">Comparar</button>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <h2>Estadísticas del País Seleccionado</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Población Máxima</h3>
+                    <span id="maxPopulation">-</span>
+                    <p id="maxYear">Año: -</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Población Mínima</h3>
+                    <span id="minPopulation">-</span>
+                    <p id="minYear">Año: -</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Suma Total</h3>
+                    <span id="sumPopulation">-</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Promedio</h3>
+                    <span id="avgPopulation">-</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Moda</h3>
+                    <span id="modePopulation">-</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Varianza</h3>
+                    <span id="variancePopulation">-</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Desviación Estándar</h3>
+                    <span id="stdDevPopulation">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-section">
+                <h2>Evolución de la Población</h2>
+                <canvas id="populationChart"></canvas>
+            </div>
+            
+            <div class="chart-section">
+                <h2>Población por Año Seleccionado</h2>
+                <canvas id="yearChart"></canvas>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-section">
+                <h2>Histograma de Población</h2>
+                <canvas id="histogramChart"></canvas>
+            </div>
+            
+            <div class="chart-section">
+                <h2>Gráfico de Dispersión</h2>
+                <canvas id="scatterChart"></canvas>
+            </div>
+        </div>
+
+        <div class="comparison-section" id="comparisonSection" style="display: none;">
+            <h2>Comparación de Datos</h2>
+            <div class="comparison-container">
+                <div class="comparison-item">
+                    <h3 id="comparisonTitle1">Elemento 1</h3>
+                    <div class="comparison-stats">
+                        <p>Población: <span id="comparisonPopulation1">-</span></p>
+                        <p>Año: <span id="comparisonYear1">-</span></p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <h3 id="comparisonTitle2">Elemento 2</h3>
+                    <div class="comparison-stats">
+                        <p>Población: <span id="comparisonPopulation2">-</span></p>
+                        <p>Año: <span id="comparisonYear2">-</span></p>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <h3>Diferencia</h3>
+                    <div class="comparison-stats">
+                        <p>Diferencia: <span id="comparisonDifference">-</span></p>
+                        <p>Porcentaje: <span id="comparisonPercentage">-</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-table">
+            <h2>Datos de Población</h2>
+            <div class="table-container">
+                <table id="populationTable">
+                    <thead>
+                        <tr>
+                            <th>País</th>
+                            <th>Año</th>
+                            <th>Población</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" class="loading-message">Cargando datos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
